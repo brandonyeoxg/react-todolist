@@ -6,6 +6,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import TodoDetails from './components/todos/TodoDetails';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
+import CreateTodo from './components/todos/CreateTodo';
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
             <Route path='/project/:id' component={TodoDetails} />
             <Route path='/signin' component={SignIn} />
             <Route path='/signup' component={SignUp} />
+            <Route path='/createtodo' component={CreateTodo} />
           </Switch>
         </div>
       </BrowserRouter>
