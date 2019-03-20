@@ -10,9 +10,13 @@ const todoReducer = (state = initState, action) => {
   switch (action.type) {
     case 'CREATE_TODO':
       console.log('created todo', action.todo);
-      break;
+      return state;
+    case 'CREATE_TODO_ERROR':
+      console.log('created project error', action.err);
+      return state;
+    default:
+      return state;
   }
-  return state;
 }
 
 export default todoReducer;
