@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 const TodoList = ({todos}) => {
   const todosList = (todos) ? todos.map(todo => {
     return(
-      <Link to={'/project/' + todo.id}>
-        <TodoSummary todo={todo} key={todo.id} />
+      <Link to={'/project/' + todo.id} key={todo.id}>
+        <TodoSummary todo={todo}  />
       </Link>);
   }) : null;
   return (
