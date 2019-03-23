@@ -1,7 +1,6 @@
 export const createTodo = (todo) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const firestore = getFirestore();
-    firestore.collection('projects');
     firestore.collection('todos').add({
       ...todo,
       authorFirstName: 'Bran',
