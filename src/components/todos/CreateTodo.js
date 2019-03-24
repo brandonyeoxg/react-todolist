@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; 
 import { createTodo } from '../../store/actions/todoActions';
+import { Redirect } from 'react-router-dom';
 
 class CreateTodo extends Component {
   state = {
@@ -20,6 +21,10 @@ class CreateTodo extends Component {
   }
 
   render() {
+    const { auth } = this.props;
+    if (!auth.uid) {
+      return (<Redirect to='/signin' />);
+    }
     return(
       <div className='container'>
         <form onSubmit={this.handleSubmit} className="white">
@@ -41,10 +46,17 @@ class CreateTodo extends Component {
   }
 }
 
+
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
     createTodo: (todo) => dispatch(createTodo(todo))
   }
 }
 
-export default connect(null, mapDispatchToProps)(CreateTodo);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateTodo);
